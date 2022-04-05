@@ -1,0 +1,2 @@
+# Wordpress
+Base Wordpress project

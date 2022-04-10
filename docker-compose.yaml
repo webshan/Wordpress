@@ -34,12 +34,12 @@ services:
       MYSQL_PASSWORD: '${DATABASE_PASSWORD}'
       MYSQL_RANDOM_ROOT_PASSWORD: '1'
     volumes:
-      - 'db:/var/lib/mysql'
+      - 'database:/var/lib/mysql'
     networks:
       - wordpress
 
 volumes:
-  'wordpress':
-  'db':
+  wordpress:
+  database:
 networks:
   wordpress:

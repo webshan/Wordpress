@@ -15,7 +15,7 @@ services:
       WORDPRESS_DB_NAME: '${DATABASE_NAME}'
     volumes:
       - 'wordpress:/var/www/html'
-      - './config/.haccess:/var/www/html/.haccess'
+      - './config/.htaccess:/var/www/html/.htaccess'
       - './config/wp-config.php:/var/www/html/wp-config.php'
       - './config/robots.txt:/var/www/html/robots.txt'
       - './config/favicon.ico:/var/www/html/favicon.ico'

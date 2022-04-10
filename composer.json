@@ -1,5 +1,5 @@
 {
-	"name": "webshan/laravel",
+	"name": "webshan/wordpress",
 	"type": "project",
 	"description": "Dockerized WordPress development environment",
 	"keywords": ["WordPress", "Docker"],

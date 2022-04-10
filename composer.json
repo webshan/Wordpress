@@ -1,0 +1,13 @@
+{
+	"name": "webshan/laravel",
+	"type": "project",
+	"description": "Dockerized WordPress development environment",
+	"keywords": ["WordPress", "Docker"],
+	"license": "MIT",
+	"authors": [
+		{
+			"name": "Sina Kuhestani",
+			"email": "kuhestani@webshan.online"
+		}
+	]
+}

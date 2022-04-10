@@ -1,0 +1,45 @@
+version: '3.8'
+
+services:
+  wordpress:
+    image: wordpress:5.9.3
+    restart: always
+    ports:
+      - 4000:80
+    expose:
+      - 80
+    environment:
+      WORDPRESS_DB_HOST: '${DATABASE_HOST}'
+      WORDPRESS_DB_USER: '${DATABASE_USER}'
+      WORDPRESS_DB_PASSWORD: '${DATABASE_PASSWORD}'
+      WORDPRESS_DB_NAME: '${DATABASE_NAME}'
+    volumes:
+      - 'wordpress:/var/www/html'
+      - './config/.haccess:/var/www/html/.haccess'
+      - './config/wp-config.php:/var/www/html/wp-config.php'
+      - './config/robots.txt:/var/www/html/robots.txt'
+      - './config/favicon.ico:/var/www/html/favicon.ico'
+      - './plugins:/var/www/html/wp-content/plugins'
+      - './themes:/var/www/html/wp-content/themes'
+      - './uploads:/var/www/html/wp-content/uploads'
+      - './languages:/var/www/html/wp-content/languages'
+    networks:
+      - wordpress
+  database:
+    image: mysql:5.7
+    restart: always
+    environment:
+      MYSQL_DATABASE: '${DATABASE_NAME}'
+      MYSQL_USER: '${DATABASE_USER}'
+      MYSQL_PASSWORD: '${DATABASE_PASSWORD}'
+      MYSQL_RANDOM_ROOT_PASSWORD: '1'
+    volumes:
+      - 'db:/var/lib/mysql'
+    networks:
+      - wordpress
+
+volumes:
+  'wordpress':
+  'db':
+networks:
+  wordpress:
